@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ sinh viên</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="profile-card" aria-labelledby="page-title">
+            <div class="language-switcher" aria-label="Language switcher">
+                <a href="#vi" class="lang-link active" data-lang-link="vi">Tiếng Việt</a>
+                <span>/</span>
+                <a href="#en" class="lang-link" data-lang-link="en">English</a>
+            </div>
+
+            <h1 id="page-title">HỒ SƠ SINH VIÊN</h1>
+
+            <div class="content">
+                <div class="avatar-section">
+                    <img
+                        id="avatar"
+                        src="images/avatar.jpg"
+                        alt="Ảnh đại diện sinh viên"
+                        width="160"
+                        height="160"
+                    >
+                </div>
+                <div class="info-section">
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row" id="label-full-name">Họ và tên</th>
+                                <td id="full-name">Trần Thái Huy</td>
+                            </tr>
+                            <tr class="hidden-info">
+                                <th scope="row" id="label-student-id">Mã sinh viên</th>
+                                <td id="student-id">22123456</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="label-email">Email</th>
+                                <td id="email">wyzan071105@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="label-major">Ngành</th>
+                                <td id="major">Khoa học máy tính</td>
+                            </tr>
+                            <tr class="hidden-info">
+                                <th scope="row" id="label-school">Trường</th>
+                                <td id="school">Đại học Công nghiệp Thành phố Hồ Chí Minh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="link-list">
+                        <p>
+                            <strong id="label-github">GitHub:</strong>
+                            <a id="github-link" href="https://github.com/WyzanDev" target="_blank" rel="noopener noreferrer">
+                                https://github.com/WyzanDev
+                            </a>
+                        </p>
+                        <p>
+                            <strong id="label-linkedin">LinkedIn:</strong>
+                            <a id="linkedin-link" href="https://www.linkedin.com/in/huy-tr%E1%BA%A7n-61a62b33b/" target="_blank" rel="noopener noreferrer">
+                                https://www.linkedin.com/in/huy-tran-61a62b33b/
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="hobby-section">
+                        <h2 id="hobbies-title">Sở thích</h2>
+                        <ul id="hobbies">
+                            <li>Chơi bóng đá</li>
+                            <li>Chơi game</li>
+                            <li>Xem phim</li>
+                            <li>Nghe nhạc</li>
+                            <li>Khám phá học máy/học sâu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const translations = {
+            vi: {
+                htmlLang: "vi",
+                pageTitle: "HỒ SƠ SINH VIÊN",
+                documentTitle: "Hồ sơ sinh viên",
+                avatarAlt: "Ảnh đại diện sinh viên",
+                labels: {
+                    fullName: "Họ và tên",
+                    studentId: "Mã sinh viên",
+                    email: "Email",
+                    major: "Ngành",
+                    school: "Trường",
+                    github: "GitHub:",
+                    linkedin: "LinkedIn:"
+                },
+                values: {
+                    major: "Khoa học máy tính",
+                    school: "Đại học Công nghiệp Thành phố Hồ Chí Minh"
+                },
+                hobbiesTitle: "Sở thích",
+                hobbies: [
+                    "Chơi bóng đá",
+                    "Chơi game",
+                    "Xem phim",
+                    "Nghe nhạc",
+                    "Khám phá học máy/học sâu"
+                ]
+            },
+            en: {
+                htmlLang: "en",
+                pageTitle: "STUDENT PROFILE",
+                documentTitle: "Student Profile",
+                avatarAlt: "Student avatar",
+                labels: {
+                    fullName: "Full Name",
+                    studentId: "Student ID",
+                    email: "Email",
+                    major: "Major",
+                    school: "School",
+                    github: "GitHub:",
+                    linkedin: "LinkedIn:"
+                },
+                values: {
+                    major: "Computer Science",
+                    school: "Industrial University of Ho Chi Minh City"
+                },
+                hobbiesTitle: "Hobbies",
+                hobbies: [
+                    "Playing football",
+                    "Playing games",
+                    "Watching movies",
+                    "Listening to music",
+                    "Exploring  machine learning/deep learning"
+                ]
+            }
+        };
+
+        const elements = {
+            pageTitle: document.getElementById("page-title"),
+            avatar: document.getElementById("avatar"),
+            labelFullName: document.getElementById("label-full-name"),
+            labelStudentId: document.getElementById("label-student-id"),
+            labelEmail: document.getElementById("label-email"),
+            labelMajor: document.getElementById("label-major"),
+            labelSchool: document.getElementById("label-school"),
+            labelGithub: document.getElementById("label-github"),
+            labelLinkedin: document.getElementById("label-linkedin"),
+            major: document.getElementById("major"),
+            school: document.getElementById("school"),
+            hobbiesTitle: document.getElementById("hobbies-title"),
+            hobbies: document.getElementById("hobbies"),
+            langLinks: document.querySelectorAll("[data-lang-link]")
+        };
+
+        function setLanguage(language) {
+            const content = translations[language] || translations.vi;
+
+            document.documentElement.lang = content.htmlLang;
+            document.title = content.documentTitle;
+            elements.pageTitle.textContent = content.pageTitle;
+            elements.avatar.alt = content.avatarAlt;
+            elements.labelFullName.textContent = content.labels.fullName;
+            elements.labelStudentId.textContent = content.labels.studentId;
+            elements.labelEmail.textContent = content.labels.email;
+            elements.labelMajor.textContent = content.labels.major;
+            elements.labelSchool.textContent = content.labels.school;
+            elements.labelGithub.textContent = content.labels.github;
+            elements.labelLinkedin.textContent = content.labels.linkedin;
+            elements.major.textContent = content.values.major;
+            elements.school.textContent = content.values.school;
+            elements.hobbiesTitle.textContent = content.hobbiesTitle;
+            elements.hobbies.innerHTML = content.hobbies.map((hobby) => `<li>${hobby}</li>`).join("");
+
+            elements.langLinks.forEach((link) => {
+                const isActive = link.dataset.langLink === language;
+                link.classList.toggle("active", isActive);
+                link.setAttribute("aria-current", isActive ? "page" : "false");
+            });
+        }
+
+        const initialLanguage = window.location.hash === "#en" ? "en" : "vi";
+        setLanguage(initialLanguage);
+
+        elements.langLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                setLanguage(link.dataset.langLink);
+            });
+        });
+
+        window.addEventListener("hashchange", () => {
+            setLanguage(window.location.hash === "#en" ? "en" : "vi");
+        });
+    </script>
+</body>
+</html>
