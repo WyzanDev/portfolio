@@ -1,0 +1,48 @@
+# Student Profile 1
+
+Simple static web project that presents a student profile using HTML and CSS.
+
+## Features
+
+- Basic personal information
+- Avatar image
+- GitHub and LinkedIn links
+- Hobby list
+- Responsive layout for small screens
+
+## Project Structure
+
+```text
+student-profile-1/
+|-- css/
+|   `-- style.css
+|-- images/
+|   `-- avatar.jpg
+`-- index.html
+```
+
+## How To Run
+
+1. Open `student-profile-1/index.html` directly in a web browser.
+2. Or use VS Code with Live Server for easier preview during development.
+
+## Tech Stack
+
+- HTML5
+- CSS3
+
+## Git Setup
+
+If you want to initialize this folder as a Git repository:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+## Author
+
+- Tran Thai Huy
+- GitHub: https://github.com/WyzanDev
+#
